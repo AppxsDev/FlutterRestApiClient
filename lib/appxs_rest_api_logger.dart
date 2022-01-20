@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:logger/logger.dart';
 
 import 'appxs_rest_api_config.dart';

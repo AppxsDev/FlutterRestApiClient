@@ -1,4 +1,4 @@
-// ignore_for_file: constant_identifier_names, prefer_typing_uninitialized_variables
+// ignore_for_file: constant_identifier_names, prefer_typing_uninitialized_variables, unused_catch_clause
 
 import 'dart:async';
 import 'dart:convert';
