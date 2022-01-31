@@ -1,11 +1,10 @@
 // ignore_for_file: avoid_print
 
 import 'package:logger/logger.dart';
-
 import 'appxs_rest_api_config.dart';
 
 class AppxsRestApiLogger {
-  static late Logger logger;
+  late final Logger logger;
   final AppxsRestApiConfig config;
 
   AppxsRestApiLogger.init({required this.config}) {
