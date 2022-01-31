@@ -1,11 +1,14 @@
+// ignore_for_file: avoid_print
+
 import 'package:logger/logger.dart';
 
 import 'appxs_rest_api_config.dart';
 
 class AppxsRestApiLogger {
   static late Logger logger;
+  final AppxsRestApiConfig config;
 
-  AppxsRestApiLogger.init() {
+  AppxsRestApiLogger.init({required this.config}) {
     logger = Logger(
         level: Level.debug,
         printer: PrettyPrinter(
@@ -18,20 +21,20 @@ class AppxsRestApiLogger {
             printTime: false));
   }
 
-  static void log(Level level, String message) {
-    if (AppxsRestApiConfig.allowLog) {
+  void log(Level level, String message) {
+    if (config.allowLog) {
       logger.log(level, "│ " + message);
     }
   }
 
-  static void openBox() {
-    if (AppxsRestApiConfig.allowLog) {
+  void openBox() {
+    if (config.allowLog) {
       print("┌─────────────────────────────────────────────────");
     }
   }
 
-  static void closeBox() {
-    if (AppxsRestApiConfig.allowLog) {
+  void closeBox() {
+    if (config.allowLog) {
       print("└─────────────────────────────────────────────────");
     }
   }

@@ -5,18 +5,16 @@ class AppxsRestApiUtils {
     return true;
   }
 
-  static bool isAPIInitializated() {
-    return AppxsRestApiConfig.initializated;
-  }
-
-  static Uri mountURL({required String endpoint, required bool isTest}) {
+  static Uri mountURL(
+      {required AppxsRestApiConfig config,
+      required String endpoint,
+      required bool isTest}) {
     String apiDomain = isTest
-        ? AppxsRestApiConfig.getDebugDomain()
-        : AppxsRestApiConfig.getProductDomain();
+        ? config.debugDomain ?? config.productDomain
+        : config.productDomain;
 
-    if (AppxsRestApiConfig.getPort() != null) {
-      return Uri.parse(
-          apiDomain + ":" + AppxsRestApiConfig.getPort().toString() + endpoint);
+    if (config.port != null) {
+      return Uri.parse(apiDomain + ":" + config.port.toString() + endpoint);
     } else {
       return Uri.parse(apiDomain + endpoint);
     }
